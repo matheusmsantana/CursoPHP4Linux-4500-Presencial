@@ -1,0 +1,92 @@
+/*
+
+sudo nano /etc/php/7.0/apache2/php.ini -> para alterar   configuracoes do p.ini
+
+ctrl+l -> para limpar a tela
+
+Comando para acessar criar e banco de dados
+
+mysql -v -> verifica a versao do banco de dados
+
+mysql -> executa o mysql
+
+SHOW DATABASES; -> mostra todos os banco de dados
+
+use nome_do_banco; -> cria um banco de dados
+
+CREATE DATABASE nome_do_banco; -> cria um banco de dados
+
+CREATE TABLE nome_da_tabela(
+id INTEGER,
+nome VARCHAR(50)
+); -> cria uma tabela
+
+SHOW DATABASE; -> mostra todas as tabelas
+
+DESCRIBE nome_da_tabela; -> apresenta o conteudo da tabela
+DESC nome_da_tabela; -> apresenta o conteudo da tabela
+
+DROP TABLE nome_da_tabela -> exclui a tabela
+
+DROP DATABASE nome_do_banco -> exclui o banco
+
+ALTER TABLE nome_da_tabela ADD nome_coluna varchar(255) -> Adiciona uma coluna a tabela
+
+ALTER TABLE nome_da_tabela MODIFY nome_coluna INT AUTO_INCREMENT; -> altera a coluna para AUTO_INCREMENT
+
+ALTER TABLE nome_da_tabela MODIFY titulo varchar(255) NOT NULL DEFAULT 'test'; -> altera a os tipo do valor da coluna e o valor default
+
+INSERT INTO nome_da_tabela(colunas) VALUES (valores) -> Insere dados nas colunas;
+
+Utilizando o BEGIN e possivel utilizar rollback no mysql
+
+So e possivel recuperar dados UML no caso DELETE UPDATE utilizando o ROLLBACK nao e possivel recuperar dados 
+do tipo dml create alter e drop
+
+
+CREATE TABLE nome_da_tabela(id_usuario INT, FOREIGN KEY (id_usuario) REFERENCES usuarios(id) );
+
+alter table usuarios  ADD UNIQUE(usuario);
+
+SELECT * FROM posts  INNER JOIN usuarios ON posts.id_usuario = usuarios.id;
+
+
+SELECT FROM * nome_da_tabela limit 1,5; -> no caso ele vai trazer do primero ao 5 registro 
+
+----------------------------------------------------------------------------------------------------------------------------
+
+					POSTGRESQL
+
+sudo apt-get install postgres-9.6;
+
+para inciar o postgres
+sudo su
+postgres
+
+para logar com usuario padrao do postgres
+psql
+
+para criar banco de dados craete database nome_do_banco;
+
+
+\d nome_da_tabela mostra conteudo da tabela	
+
+para acessar banco de dados
+psql -h localhost -U matheus aula04
+
+
+alter table usuarios add constraint usuario_unique UNIQUE(usuario); -> aquela tabela tera valores unicos nao podendo coter valores repeditos.
+
+\dt lista tabelas
+
+\l lista todos os banco de dados
+
+\d nome_da_tabela -> lista a estrtura da tabela
+
+\d lista tabelas
+
+\q para sair
+
+ESTUDAR TRUNCATE 
+
+*/
