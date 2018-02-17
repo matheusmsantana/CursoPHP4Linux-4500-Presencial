@@ -3,7 +3,7 @@
 
 	require_once('conexao.php');
 
-	var_dump(conecta());
+	//var_dump(conecta());
 
 	function inserirCurso(array $curso)
 	{
@@ -15,18 +15,38 @@
 		desconecta($con);
 	}
 
-	$curso = array('nome' => 'SURUBA', 'tipo' => 'TEST', 'carga_horaria' => '3', 'requisitos' => 'nada');
-
+	//$curso = array('nome' => 'SURUBA', 'tipo' => 'TEST', 'carga_horaria' => '3', 'requisitos' => 'nada');
 	//inserirCurso($curso);
+
+	function update($tabela, $id, array $curso)
+	{
+		$con = conecta();
+		
+		$sql = " UPDATE $tabela SET nome='{$curso['nome']}', tipo='{$curso['tipo']}', carga_horaria='{$curso['carga_horaria']}', requisitos='{$curso['requisitos']}' WHERE id=$id; ";
+
+		var_dump($sql);
+		//die();
+		pg_query($sql);	
+		//return $resultado;
+		desconecta($con);	
+	}
+
+	function delete($tabela, $id)
+	{
+		$con = conecta();
+		$sql = " DELETE FROM $tabela WHERE id={$id}; ";
+		pg_query($sql);	
+		desconecta($con);	
+	}
 
 	function listarCursos($tabela)
 	{
 		$con = conecta();
-		$sql = " SELECT * FROM $tabela;";
+		$sql = " SELECT * FROM $tabela; ";
 
 		$result = pg_query($sql);
 
-		$resultado = pg_fetch_assoc($result);
+		$resultado = pg_fetch_all($result);
 
 		return $resultado;
 
@@ -56,4 +76,4 @@
 
 	//$test = listarCursosID('tb_cursos', 1);
 
-	var_dump($test);
+	//var_dump($test);
