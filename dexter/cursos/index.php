@@ -2,10 +2,11 @@
 	require_once('../layout/_topo.php');
 	?>
 	<div class="container">
-		<div class="">
+		<div class="page-header">
+			<h3>Cursos</h3>
 		
 		</div> 
-	</div>	
+	</div>
 
 	<?php
 	require_once('../include/data/database-cursos.php');
