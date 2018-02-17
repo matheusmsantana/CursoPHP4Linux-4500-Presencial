@@ -62,6 +62,7 @@ sudo apt-get install postgres-9.6;
 para inciar o postgres
 sudo su
 postgres
+su postgres
 
 para logar com usuario padrao do postgres
 psql
@@ -88,5 +89,7 @@ alter table usuarios add constraint usuario_unique UNIQUE(usuario); -> aquela ta
 \q para sair
 
 ESTUDAR TRUNCATE 
+
+ALTER DATABASE <nome_antigo> RENAME TO <novo_nome>;
 
 */
